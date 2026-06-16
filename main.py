@@ -18,7 +18,6 @@ print("-------------------End Employee Data-------------------")
 df_first_five = pd.read_sql("""
 SELECT employeeNumber, lastName
 FROM employees
-LIMIT 5
 """, conn)
 
 # STEP 3
@@ -66,7 +65,7 @@ FROM employees
 # STEP 8
 # Replace None with your code
 sum_total_price = pd.read_sql("""
-SELECT SUM(ROUND(priceEach * quantityOrdered, 2)) AS total_amount
+SELECT SUM(priceEach * quantityOrdered) AS total_amount
 FROM orderDetails;
 """, conn)
 
